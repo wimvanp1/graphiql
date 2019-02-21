@@ -7,7 +7,7 @@
     "express": "^4.13.3",
     "express-graphql": "^0.6.6",
     "graphiql": "../",
-    "graphql": "^0.10.1"
+    "graphql": "file:../../graphql-js/dist"
   },
   "optionalDependencies": {
     "react": "^15.4.2",
