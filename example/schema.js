@@ -154,6 +154,23 @@ const TestType = new GraphQLObjectType({
         listObject: { type: new GraphQLList(TestInputObject) },
       }
     },
+    hasXorConstraint: {
+      type: GraphQLString,
+      resolve(value, args) {
+        return JSON.stringify(args);
+      },
+      args: {
+        arg1: { type: GraphQLInt },
+        arg2: { type: GraphQLInt },
+      },
+      constraints: [
+        {
+          name: 'XOR',
+          leftSide: 'arg1',
+          rightSide: 'arg2',
+        },
+      ],
+    },
   })
 });
 
