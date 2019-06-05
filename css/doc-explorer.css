@@ -163,6 +163,14 @@
   color: #43A047;
 }
 
+.graphiql-container .constraint-name {
+  color: #ff0000;
+}
+
+.graphiql-container .constraint-side {
+  color: #8B2BB9;
+}
+
 .graphiql-container .doc-deprecation {
   background: #fffae8;
   box-shadow: inset 0 0 1px #bfb063;

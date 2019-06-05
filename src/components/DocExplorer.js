@@ -168,6 +168,8 @@ export class DocExplorer extends React.Component {
       this.showDoc(reference.field);
     } else if (reference.kind === 'Argument' && reference.field) {
       this.showDoc(reference.field);
+    //} else if (reference.kind === 'Constraint' && reference.field) {
+    //  this.showDoc(reference.kind);
     } else if (reference.kind === 'EnumValue' && reference.type) {
       this.showDoc(reference.type);
     }

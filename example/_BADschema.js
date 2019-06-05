@@ -133,9 +133,9 @@ const BusinessType = new GraphQLObjectType({
       resolve: (business, args) => business.house_number_addition,
     },
     vat_number: {
-      type: GraphQLString,
-      description: 'VAT number',
-      resolve: (business, args) => business.vat_number,
+    	type: GraphQLString,
+    	description: 'The VAT number of the business',
+    	resolve: (business, args) => business.vat_number,
     }
   })
 })
@@ -210,7 +210,6 @@ const TestType = new GraphQLObjectType({
       },
       args: {
         name: { type: GraphQLString },
-        street: { type: GraphQLString },
         vat_number: { type: GraphQLString },
       },
       constraints: [
@@ -233,22 +232,27 @@ const TestMutationType = new GraphQLObjectType({
       description: 'Creates a new business',
       args: {
         name: { type: GraphQLNonNull(GraphQLString) },
-        street: { type: GraphQLString },
-        house_number: { type: GraphQLInt },
-        house_number_addition: { type: GraphQLString },
+        vat_free: { type: GraphQLBoolean },
         vat_number: { type: GraphQLString },
       },
       constraints: [
         {
-          name: 'WITH',
-          leftSide: 'street',
-          rightSide: 'house_number'
+          name: 'XOR',
+          leftSide:
+            {
+	          name: 'THEN',
+	          leftSide: {
+	          	name: '=',
+	          	leftSide: 'vat_free',
+	          	rightSide: 'true',
+	          },
+	          rightSide: {
+	          	name: 'NOT',
+	          	leftSide: 'vat_number',
+	          },
+	        },
+          rightSide: 'vat_number',
         },
-        {
-          name: 'THEN',
-          leftSide: 'house_number_addition',
-          rightSide: 'house_number',
-        }
       ],
       resolve(prev, args) {
         console.log(args);

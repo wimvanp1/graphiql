@@ -5,9 +5,10 @@
   },
   "dependencies": {
     "express": "^4.13.3",
-    "express-graphql": "^0.6.6",
+    "express-graphql": "file:../../express-graphql",
     "graphiql": "../",
-    "graphql": "file:../../graphql-js/dist"
+    "graphql": "file:../../graphql-js/dist",
+    "logic-solver": "^2.0.1"
   },
   "optionalDependencies": {
     "react": "^15.4.2",

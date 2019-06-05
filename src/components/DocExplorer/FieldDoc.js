@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Argument from './Argument';
+import Constraint from './Constraint';
 import MarkdownContent from './MarkdownContent';
 import TypeLink from './TypeLink';
 
@@ -47,6 +48,24 @@ export default class FieldDoc extends React.Component {
       );
     }
 
+    let constraintsDef;
+    if (field.constraints && field.constraints.length > 0) {
+      constraintsDef = (
+        <div className="doc-category">
+          <div className="doc-category-title">
+            {'constraints'}
+          </div>
+          {field.constraints.map(constraint =>
+            <div key={constraint.name} className="doc-category-item">
+              <div>
+                <Constraint constraint={constraint} />
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div>
         <MarkdownContent
@@ -65,6 +84,7 @@ export default class FieldDoc extends React.Component {
           <TypeLink type={field.type} onClick={this.props.onClickType} />
         </div>
         {argsDef}
+        {constraintsDef}
       </div>
     );
   }

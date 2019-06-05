@@ -494,6 +494,7 @@ export class GraphiQL extends React.Component {
     fetch
       .then(result => {
         if (result.data) {
+          console.log(result);
           return result;
         }
 

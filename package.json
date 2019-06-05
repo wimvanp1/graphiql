@@ -52,7 +52,8 @@
   "dependencies": {
     "codemirror": "^5.26.0",
     "codemirror-graphql": "^0.7.1",
-    "markdown-it": "^8.4.0"
+    "markdown-it": "^8.4.0",
+    "logic-solver": "^2.0.1"
   },
   "peerDependencies": {
     "graphql": "^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0",
@@ -80,7 +81,7 @@
     "eslint-plugin-babel": "4.1.2",
     "eslint-plugin-react": "7.2.0",
     "express": "5.0.0-alpha.5",
-    "express-graphql": "0.6.7",
+    "express-graphql": "file:../express-graphql",
     "flow-bin": "0.52.0",
     "graphql": "file:../graphql-js/dist",
     "husky": "^0.14.0",

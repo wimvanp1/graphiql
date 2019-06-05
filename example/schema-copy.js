@@ -132,11 +132,6 @@ const BusinessType = new GraphQLObjectType({
       description: 'The addition to the house number (eg A in the number 23A)',
       resolve: (business, args) => business.house_number_addition,
     },
-    vat_number: {
-      type: GraphQLString,
-      description: 'VAT number',
-      resolve: (business, args) => business.vat_number,
-    }
   })
 })
 
@@ -211,13 +206,12 @@ const TestType = new GraphQLObjectType({
       args: {
         name: { type: GraphQLString },
         street: { type: GraphQLString },
-        vat_number: { type: GraphQLString },
       },
       constraints: [
         {
           name: 'XOR',
           leftSide: 'name',
-          rightSide: 'vat_number',
+          rightSide: 'street',
         },
       ],
     },
@@ -236,7 +230,6 @@ const TestMutationType = new GraphQLObjectType({
         street: { type: GraphQLString },
         house_number: { type: GraphQLInt },
         house_number_addition: { type: GraphQLString },
-        vat_number: { type: GraphQLString },
       },
       constraints: [
         {
